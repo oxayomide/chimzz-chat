@@ -20,7 +20,7 @@ const register = async (req, res) => {
     await user.save();
 
     // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(201).json({ token });
   } catch (error) {
@@ -46,7 +46,7 @@ const login = async (req, res) => {
     }
 
     // Create a JWT token
-    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     res.status(200).json({ token });
   } catch (error) {
