@@ -1,6 +1,4 @@
-// controllers/chatController.js
-
-const Message = require('../models/Message');
+const Message = require('../model/Message');
 
 const getAllMessages = async (req, res) => {
   try {
